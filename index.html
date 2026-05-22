@@ -1,3 +1,8 @@
+Pronto! Fiz várias melhorias para deixar o site mais atraente e adicionei o tutorial interativo que você pediu. Agora o mascote **Arakki** ganhou detalhes vermelhos e azuis no corpo (um coração no peito e listras azuis nas laterais). O visual também está mais claro e elegante, com cores vibrantes e um fundo que transmite mais acolhimento.
+
+Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te guiar passo a passo, com setinhas apontando para o campo de nome e para o botão de busca. Depois que você pesquisar, ele ainda comemora junto com você! 🕷️✨
+
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -8,29 +13,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #0a0a12;
-            --bg-elevated: #111119;
-            --bg-card: rgba(18, 18, 30, 0.7);
-            --bg-card-hover: rgba(22, 22, 38, 0.85);
-            --surface: rgba(255, 255, 255, 0.03);
-            --surface-hover: rgba(255, 255, 255, 0.06);
-            --text: #e4e4ec;
-            --text-secondary: #9a9aad;
-            --text-muted: #6b6b80;
-            --accent-red: #e57373;
-            --accent-red-glow: rgba(229, 115, 115, 0.25);
-            --accent-blue: #64b5f6;
-            --accent-blue-glow: rgba(100, 181, 246, 0.2);
-            --accent-gold: #c9a87c;
-            --border: rgba(255, 255, 255, 0.06);
-            --border-glow: rgba(255, 255, 255, 0.12);
+            --bg: #0f0f1a;
+            --bg-elevated: #19192b;
+            --bg-card: rgba(22, 22, 38, 0.8);
+            --bg-card-hover: rgba(28, 28, 48, 0.9);
+            --surface: rgba(255, 255, 255, 0.04);
+            --surface-hover: rgba(255, 255, 255, 0.08);
+            --text: #f0f0f8;
+            --text-secondary: #b0b0c8;
+            --text-muted: #7a7a95;
+            --accent-red: #f26b6b;
+            --accent-red-glow: rgba(242, 107, 107, 0.35);
+            --accent-blue: #69a9f5;
+            --accent-blue-glow: rgba(105, 169, 245, 0.3);
+            --accent-gold: #d4b68c;
+            --border: rgba(255, 255, 255, 0.08);
+            --border-glow: rgba(255, 255, 255, 0.14);
             --radius-sm: 10px;
             --radius: 16px;
             --radius-lg: 24px;
             --radius-xl: 32px;
-            --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4), 0 1px 4px rgba(0, 0, 0, 0.3);
-            --shadow-glow-red: 0 0 40px rgba(229, 115, 115, 0.1), 0 0 80px rgba(229, 115, 115, 0.04);
-            --shadow-glow-blue: 0 0 40px rgba(100, 181, 246, 0.1), 0 0 80px rgba(100, 181, 246, 0.04);
+            --shadow-card: 0 4px 30px rgba(0, 0, 0, 0.5), 0 1px 6px rgba(0, 0, 0, 0.4);
+            --shadow-glow-red: 0 0 50px rgba(242, 107, 107, 0.15), 0 0 90px rgba(242, 107, 107, 0.06);
+            --shadow-glow-blue: 0 0 50px rgba(105, 169, 245, 0.15), 0 0 90px rgba(105, 169, 245, 0.06);
             --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
             --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
             --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
@@ -54,7 +59,7 @@
 
         body {
             font-family: var(--font-sans);
-            background: var(--bg);
+            background: radial-gradient(ellipse at 50% 0%, #1e1e35 0%, #0a0a14 85%);
             color: var(--text);
             min-height: 100vh;
             overflow-x: hidden;
@@ -65,7 +70,6 @@
             -webkit-user-select: none;
         }
 
-        /* Canvas de Partículas */
         #particles-canvas {
             position: fixed;
             top: 0;
@@ -74,15 +78,14 @@
             height: 100%;
             pointer-events: none;
             z-index: 0;
-            opacity: 0.7;
+            opacity: 0.8;
         }
 
-        /* Loading Screen */
         #loading-screen {
             position: fixed;
             inset: 0;
             z-index: 9999;
-            background: var(--bg);
+            background: #0a0a14;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -143,7 +146,6 @@
             }
         }
 
-        /* Header / Menu */
         #site-header {
             position: fixed;
             top: 16px;
@@ -152,7 +154,7 @@
             z-index: 100;
             width: calc(100% - 32px);
             max-width: 700px;
-            background: rgba(14, 14, 22, 0.75);
+            background: rgba(20, 20, 34, 0.8);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
             border: 1px solid var(--border);
@@ -165,8 +167,8 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
         }
         #site-header.scrolled {
-            background: rgba(10, 10, 18, 0.9);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+            background: rgba(12, 12, 22, 0.92);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
         }
         .header-logo {
             display: flex;
@@ -194,7 +196,7 @@
                 box-shadow: 0 0 12px var(--accent-red-glow);
             }
             50% {
-                box-shadow: 0 0 24px var(--accent-red-glow), 0 0 40px rgba(229, 115, 115, 0.15);
+                box-shadow: 0 0 24px var(--accent-red-glow), 0 0 40px rgba(242, 107, 107, 0.2);
             }
         }
         .header-nav {
@@ -246,7 +248,7 @@
                 top: 80px;
                 left: 50%;
                 transform: translateX(-50%) translateY(-16px);
-                background: rgba(14, 14, 22, 0.95);
+                background: rgba(15, 15, 26, 0.95);
                 backdrop-filter: blur(30px);
                 -webkit-backdrop-filter: blur(30px);
                 border: 1px solid var(--border);
@@ -281,7 +283,6 @@
             }
         }
 
-        /* Main Content Wrapper */
         #main-content {
             position: relative;
             z-index: 1;
@@ -313,7 +314,6 @@
             }
         }
 
-        /* Mascote + Balão */
         .mascot-wrapper {
             display: flex;
             align-items: flex-end;
@@ -351,7 +351,7 @@
         .mascot-avatar svg {
             width: 100%;
             height: 100%;
-            filter: drop-shadow(0 8px 20px rgba(100, 181, 246, 0.2));
+            filter: drop-shadow(0 8px 20px rgba(105, 169, 245, 0.25));
         }
         .speech-bubble {
             position: relative;
@@ -424,7 +424,6 @@
             }
         }
 
-        /* Campo de busca */
         .search-card {
             background: var(--bg-card);
             backdrop-filter: blur(20px);
@@ -475,8 +474,8 @@
         }
         .search-input-group input:focus {
             border-color: var(--accent-blue);
-            box-shadow: 0 0 0 3px rgba(100, 181, 246, 0.1);
-            background: rgba(255, 255, 255, 0.06);
+            box-shadow: 0 0 0 3px rgba(105, 169, 245, 0.15);
+            background: rgba(255, 255, 255, 0.07);
         }
         .search-input-group input::placeholder {
             color: var(--text-muted);
@@ -496,12 +495,12 @@
             overflow: hidden;
         }
         .btn-primary {
-            background: linear-gradient(135deg, #e57373, #c62828);
+            background: linear-gradient(135deg, #f26b6b, #c43e3e);
             color: #fff;
-            box-shadow: 0 4px 20px rgba(229, 115, 115, 0.3);
+            box-shadow: 0 4px 24px rgba(242, 107, 107, 0.35);
         }
         .btn-primary:hover {
-            box-shadow: 0 6px 28px rgba(229, 115, 115, 0.45);
+            box-shadow: 0 6px 32px rgba(242, 107, 107, 0.5);
             transform: translateY(-2px);
         }
         .btn-primary:active {
@@ -515,7 +514,7 @@
         .btn-outline:hover {
             background: var(--surface-hover);
             border-color: var(--accent-blue);
-            box-shadow: 0 0 20px rgba(100, 181, 246, 0.1);
+            box-shadow: 0 0 24px rgba(105, 169, 245, 0.15);
         }
         .btn-ghost {
             background: transparent;
@@ -527,7 +526,6 @@
             background: var(--surface-hover);
         }
 
-        /* Cards de resultado */
         .results-list {
             display: flex;
             flex-direction: column;
@@ -583,7 +581,6 @@
             font-weight: 500;
         }
 
-        /* Página do Texto */
         .text-page-wrapper {
             animation: fadeSlideIn 0.5s ease forwards;
             width: 100%;
@@ -608,7 +605,7 @@
             right: -60px;
             width: 180px;
             height: 180px;
-            background: radial-gradient(circle, rgba(100, 181, 246, 0.06) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(105, 169, 245, 0.08) 0%, transparent 70%);
             border-radius: 50%;
             pointer-events: none;
         }
@@ -619,7 +616,7 @@
             left: -40px;
             width: 140px;
             height: 140px;
-            background: radial-gradient(circle, rgba(229, 115, 115, 0.05) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(242, 107, 107, 0.06) 0%, transparent 70%);
             border-radius: 50%;
             pointer-events: none;
         }
@@ -666,7 +663,6 @@
                 font-size: 1.4rem;
             }
         }
-        /* Versículos */
         .verses-section {
             margin-top: 32px;
             position: relative;
@@ -688,8 +684,8 @@
             justify-content: center;
         }
         .verse-card {
-            background: rgba(201, 168, 124, 0.06);
-            border: 1px solid rgba(201, 168, 124, 0.2);
+            background: rgba(212, 182, 140, 0.06);
+            border: 1px solid rgba(212, 182, 140, 0.2);
             border-radius: var(--radius);
             padding: 16px 20px;
             font-family: var(--font-serif);
@@ -706,9 +702,9 @@
             letter-spacing: 0.02em;
         }
         .verse-card:hover {
-            background: rgba(201, 168, 124, 0.1);
-            border-color: rgba(201, 168, 124, 0.35);
-            box-shadow: 0 0 30px rgba(201, 168, 124, 0.1);
+            background: rgba(212, 182, 140, 0.12);
+            border-color: rgba(212, 182, 140, 0.4);
+            box-shadow: 0 0 30px rgba(212, 182, 140, 0.15);
             transform: translateY(-2px);
         }
         .verse-card::before {
@@ -719,7 +715,6 @@
             opacity: 0.6;
             font-style: normal;
         }
-        /* Estrelas decorativas */
         .decorative-stars {
             position: absolute;
             pointer-events: none;
@@ -749,7 +744,6 @@
             }
         }
 
-        /* Seções de conteúdo */
         .content-card {
             background: var(--bg-card);
             backdrop-filter: blur(20px);
@@ -784,7 +778,6 @@
             border-radius: 2px;
         }
 
-        /* Footer */
         #site-footer {
             text-align: center;
             padding: 30px 20px;
@@ -794,7 +787,6 @@
             z-index: 1;
         }
 
-        /* Toast */
         .toast {
             position: fixed;
             bottom: 30px;
@@ -816,9 +808,42 @@
             transform: translateX(-50%) translateY(0);
         }
 
-        /* Utility */
+        /* Tutorial arrow */
+        .tutorial-arrow {
+            position: fixed;
+            z-index: 150;
+            pointer-events: none;
+            width: 30px;
+            height: 20px;
+            display: none;
+            transform: translate(-50%, -100%);
+        }
+        .tutorial-arrow::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+            border-top: 15px solid var(--accent-blue);
+            margin: 0 auto;
+            animation: arrowBounce 1s ease-in-out infinite;
+        }
+        @keyframes arrowBounce {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(5px);
+            }
+        }
+
         .text-center {
             text-align: center;
+        }
+        .mt-8 {
+            margin-top: 8px;
         }
         .mt-16 {
             margin-top: 16px;
@@ -832,9 +857,6 @@
         .mb-16 {
             margin-bottom: 16px;
         }
-        .gap-8 {
-            gap: 8px;
-        }
         .flex-center {
             display: flex;
             justify-content: center;
@@ -845,34 +867,32 @@
 </head>
 <body>
 
-    <!-- Canvas de Partículas -->
     <canvas id="particles-canvas"></canvas>
 
-    <!-- Loading Screen -->
     <div id="loading-screen">
         <div class="loading-mascot-container">
             <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <ellipse cx="40" cy="52" rx="24" ry="20" fill="#1a1a2e" stroke="#2a2a40" stroke-width="1.5"/>
-                <circle cx="40" cy="32" r="18" fill="#1e1e35" stroke="#2a2a45" stroke-width="1.5"/>
-                <circle cx="33" cy="29" r="5" fill="#f0f0f8"/>
-                <circle cx="47" cy="29" r="5" fill="#f0f0f8"/>
-                <circle cx="33" cy="29" r="2.5" fill="#1a1a2e"/>
-                <circle cx="47" cy="29" r="2.5" fill="#1a1a2e"/>
-                <circle cx="34.5" cy="27.5" r="1" fill="#fff"/>
-                <circle cx="48.5" cy="27.5" r="1" fill="#fff"/>
-                <path d="M36 38 Q40 43 44 38" stroke="#e57373" stroke-width="2" fill="none" stroke-linecap="round"/>
-                <rect x="36" y="14" width="8" height="12" rx="4" fill="#1e1e35" stroke="#2a2a45" stroke-width="1"/>
-                <line x1="22" y1="22" x2="30" y2="18" stroke="#64b5f6" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
-                <line x1="58" y1="22" x2="50" y2="18" stroke="#64b5f6" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
-                <circle cx="20" cy="50" r="3" fill="none" stroke="#e57373" stroke-width="1" opacity="0.5"/>
-                <circle cx="60" cy="50" r="3" fill="none" stroke="#e57373" stroke-width="1" opacity="0.5"/>
+                <ellipse cx="40" cy="54" rx="26" ry="21" fill="#161628" stroke="#2a2a42" stroke-width="1.5"/>
+                <path d="M40 48 C40 48 36 43 36 40 C36 37 39 35 40 38 C41 35 44 37 44 40 C44 43 40 48 40 48Z" fill="#f26b6b" opacity="0.9"/>
+                <path d="M23 56 Q28 53 32 58" stroke="#69a9f5" stroke-width="2" fill="none" stroke-linecap="round"/>
+                <path d="M57 56 Q52 53 48 58" stroke="#69a9f5" stroke-width="2" fill="none" stroke-linecap="round"/>
+                <circle cx="40" cy="33" r="19" fill="#1a1a32" stroke="#2a2a48" stroke-width="1.5"/>
+                <circle cx="32" cy="29" r="5.5" fill="#f2f2fa"/>
+                <circle cx="48" cy="29" r="5.5" fill="#f2f2fa"/>
+                <circle cx="32" cy="29" r="2.8" fill="#15152a"/>
+                <circle cx="48" cy="29" r="2.8" fill="#15152a"/>
+                <circle cx="33.8" cy="27.2" r="1.2" fill="#fff"/>
+                <circle cx="49.8" cy="27.2" r="1.2" fill="#fff"/>
+                <path d="M35 40 Q40 45 45 40" stroke="#f26b6b" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+                <rect x="35.5" y="13" width="9" height="13" rx="4.5" fill="#1a1a32" stroke="#2a2a48" stroke-width="1.2"/>
+                <line x1="20" y1="24" x2="28" y2="18" stroke="#69a9f5" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
+                <line x1="60" y1="24" x2="52" y2="18" stroke="#69a9f5" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
             </svg>
         </div>
         <div class="loading-spinner"></div>
         <p class="loading-text">Preparando algo especial...</p>
     </div>
 
-    <!-- Header -->
     <header id="site-header">
         <a class="header-logo" onclick="navigateTo('home')" title="Arakki — Início">
             <span class="logo-dot"></span> Arakki
@@ -886,14 +906,15 @@
         </nav>
     </header>
 
-    <!-- Conteúdo Principal -->
     <main id="main-content">
-        <!-- HOME -->
         <section class="page-section active" id="section-home">
             <div class="mascot-wrapper centered">
                 <div class="mascot-avatar" id="mascot-home">
                     <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <ellipse cx="40" cy="54" rx="26" ry="21" fill="#161628" stroke="#2a2a42" stroke-width="1.5"/>
+                        <path d="M40 48 C40 48 36 43 36 40 C36 37 39 35 40 38 C41 35 44 37 44 40 C44 43 40 48 40 48Z" fill="#f26b6b" opacity="0.9"/>
+                        <path d="M23 56 Q28 53 32 58" stroke="#69a9f5" stroke-width="2" fill="none" stroke-linecap="round"/>
+                        <path d="M57 56 Q52 53 48 58" stroke="#69a9f5" stroke-width="2" fill="none" stroke-linecap="round"/>
                         <circle cx="40" cy="33" r="19" fill="#1a1a32" stroke="#2a2a48" stroke-width="1.5"/>
                         <circle cx="32" cy="29" r="5.5" fill="#f2f2fa"/>
                         <circle cx="48" cy="29" r="5.5" fill="#f2f2fa"/>
@@ -901,15 +922,19 @@
                         <circle cx="48" cy="29" r="2.8" fill="#15152a"/>
                         <circle cx="33.8" cy="27.2" r="1.2" fill="#fff"/>
                         <circle cx="49.8" cy="27.2" r="1.2" fill="#fff"/>
-                        <path d="M35 40 Q40 45 45 40" stroke="#e57373" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+                        <path d="M35 40 Q40 45 45 40" stroke="#f26b6b" stroke-width="2.2" fill="none" stroke-linecap="round"/>
                         <rect x="35.5" y="13" width="9" height="13" rx="4.5" fill="#1a1a32" stroke="#2a2a48" stroke-width="1.2"/>
-                        <line x1="20" y1="24" x2="28" y2="18" stroke="#64b5f6" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
-                        <line x1="60" y1="24" x2="52" y2="18" stroke="#64b5f6" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
+                        <line x1="20" y1="24" x2="28" y2="18" stroke="#69a9f5" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
+                        <line x1="60" y1="24" x2="52" y2="18" stroke="#69a9f5" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
                     </svg>
                 </div>
                 <div class="speech-bubble" id="bubble-home">
                     <span id="bubble-home-text"></span><span class="typing-cursor" id="cursor-home"></span>
                 </div>
+            </div>
+            <div style="text-align:center; margin-top:-10px; margin-bottom:20px;">
+                <button id="tutorial-btn" class="btn btn-ghost" style="font-size:0.9rem;">Como utilizar o site? 🤔</button>
+                <button id="tutorial-next-btn" class="btn btn-outline" style="display:none; margin-left:8px;">Próximo →</button>
             </div>
             <div class="search-card">
                 <h2>Encontre sua mensagem</h2>
@@ -922,10 +947,8 @@
             <div id="results-container" style="display:none;"></div>
         </section>
 
-        <!-- TEXT VIEW -->
         <section class="page-section" id="section-text-view"></section>
 
-        <!-- ABOUT -->
         <section class="page-section" id="section-about">
             <div class="content-card">
                 <h2>Sobre o Arakki</h2>
@@ -937,13 +960,15 @@
             </div>
         </section>
 
-        <!-- WHY MASCOT -->
         <section class="page-section" id="section-why-mascot">
             <div class="content-card">
                 <div class="mascot-wrapper centered" style="margin-bottom:20px;">
                     <div class="mascot-avatar">
                         <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <ellipse cx="40" cy="54" rx="26" ry="21" fill="#161628" stroke="#2a2a42" stroke-width="1.5"/>
+                            <path d="M40 48 C40 48 36 43 36 40 C36 37 39 35 40 38 C41 35 44 37 44 40 C44 43 40 48 40 48Z" fill="#f26b6b" opacity="0.9"/>
+                            <path d="M23 56 Q28 53 32 58" stroke="#69a9f5" stroke-width="2" fill="none" stroke-linecap="round"/>
+                            <path d="M57 56 Q52 53 48 58" stroke="#69a9f5" stroke-width="2" fill="none" stroke-linecap="round"/>
                             <circle cx="40" cy="33" r="19" fill="#1a1a32" stroke="#2a2a48" stroke-width="1.5"/>
                             <circle cx="32" cy="29" r="5.5" fill="#f2f2fa"/>
                             <circle cx="48" cy="29" r="5.5" fill="#f2f2fa"/>
@@ -951,10 +976,10 @@
                             <circle cx="48" cy="29" r="2.8" fill="#15152a"/>
                             <circle cx="33.8" cy="27.2" r="1.2" fill="#fff"/>
                             <circle cx="49.8" cy="27.2" r="1.2" fill="#fff"/>
-                            <path d="M35 40 Q40 45 45 40" stroke="#e57373" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+                            <path d="M35 40 Q40 45 45 40" stroke="#f26b6b" stroke-width="2.2" fill="none" stroke-linecap="round"/>
                             <rect x="35.5" y="13" width="9" height="13" rx="4.5" fill="#1a1a32" stroke="#2a2a48" stroke-width="1.2"/>
-                            <line x1="20" y1="24" x2="28" y2="18" stroke="#64b5f6" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
-                            <line x1="60" y1="24" x2="52" y2="18" stroke="#64b5f6" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
+                            <line x1="20" y1="24" x2="28" y2="18" stroke="#69a9f5" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
+                            <line x1="60" y1="24" x2="52" y2="18" stroke="#69a9f5" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
                         </svg>
                     </div>
                 </div>
@@ -967,7 +992,6 @@
             </div>
         </section>
 
-        <!-- CREDITS -->
         <section class="page-section" id="section-credits">
             <div class="content-card">
                 <h2>Créditos</h2>
@@ -975,24 +999,21 @@
                 <p>Este site foi criado com muito carinho para celebrar a amizade.</p>
                 <p>Design, desenvolvimento e ilustração do mascote <span class="highlight">Arakki</span> feitos artesanalmente.</p>
                 <p style="color:var(--text-muted);font-size:0.85rem;">Fontes: Google Fonts (Inter, Playfair Display)</p>
-                <p style="color:var(--text-muted);font-size:0.85rem;">Ícones e ilustrações: originais</p>
                 <p style="color:var(--accent-gold);">💙 Obrigado por visitar!</p>
             </div>
         </section>
     </main>
 
-    <!-- Toast -->
+    <div class="tutorial-arrow" id="tutorial-arrow"></div>
     <div class="toast" id="toast"></div>
 
-    <!-- Footer -->
     <footer id="site-footer">
         <p>© 2026 Arakki — Guardião de Mensagens. Feito com 💙 para amigos.</p>
     </footer>
 
     <script>
         (function() {
-            // ============ DADOS DOS TEXTOS (JSON-like) ============
-            const messagesData = [{
+           const messagesData = [{
                 nome: "Valeria",
                 titulo: "Não sei um titulo bom, apenas leia",
                 data: "21/05/2026",
@@ -1041,7 +1062,6 @@
                 ]
             }];
 
-            // ============ ELEMENTOS DOM ============
             const loadingScreen = document.getElementById('loading-screen');
             const particlesCanvas = document.getElementById('particles-canvas');
             const ctx = particlesCanvas.getContext('2d');
@@ -1061,14 +1081,17 @@
             const sectionWhyMascot = document.getElementById('section-why-mascot');
             const sectionCredits = document.getElementById('section-credits');
             const allSections = [sectionHome, sectionTextView, sectionAbout, sectionWhyMascot, sectionCredits];
+            const tutorialBtn = document.getElementById('tutorial-btn');
+            const tutorialNextBtn = document.getElementById('tutorial-next-btn');
+            const tutorialArrow = document.getElementById('tutorial-arrow');
 
             let currentSection = 'home';
             let typingTimeout = null;
             let particlesArray = [];
             let animationFrameId = null;
             let currentTextData = null;
+            let tutorialStep = 0; // 0: off, 1: step1, 2: step2
 
-            // ============ LOADING ============
             window.addEventListener('load', () => {
                 setTimeout(() => {
                     loadingScreen.classList.add('hidden');
@@ -1079,7 +1102,6 @@
                 }, 1800);
             });
 
-            // ============ PARTÍCULAS ============
             function resizeCanvas() {
                 particlesCanvas.width = window.innerWidth;
                 particlesCanvas.height = window.innerHeight;
@@ -1114,7 +1136,7 @@
                 draw(ctx) {
                     ctx.beginPath();
                     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(180,190,210,${Math.max(0.05,this.currentOpacity)})`;
+                    ctx.fillStyle = `rgba(200,210,230,${Math.max(0.05,this.currentOpacity)})`;
                     ctx.fill();
                 }
             }
@@ -1133,6 +1155,7 @@
             window.addEventListener('resize', () => {
                 initParticles();
                 resizeCanvas();
+                if (tutorialStep !== 0) positionArrowForCurrentStep();
             });
 
             function animateParticles(timestamp) {
@@ -1141,7 +1164,6 @@
                     p.update(timestamp);
                     p.draw(ctx);
                 });
-                // Desenhar conexões sutis entre partículas próximas
                 for (let i = 0; i < particlesArray.length; i++) {
                     for (let j = i + 1; j < particlesArray.length; j++) {
                         const dx = particlesArray[i].x - particlesArray[j].x;
@@ -1151,7 +1173,7 @@
                             ctx.beginPath();
                             ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
                             ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
-                            ctx.strokeStyle = `rgba(140,150,180,${0.04 * (1 - dist/80)})`;
+                            ctx.strokeStyle = `rgba(160,170,200,${0.04 * (1 - dist/80)})`;
                             ctx.lineWidth = 0.4;
                             ctx.stroke();
                         }
@@ -1161,7 +1183,6 @@
             }
             animationFrameId = requestAnimationFrame(animateParticles);
 
-            // ============ MENU MOBILE ============
             mobileMenuBtn.addEventListener('click', () => {
                 headerNav.classList.toggle('open');
                 mobileMenuBtn.textContent = headerNav.classList.contains('open') ? '✕' : '☰';
@@ -1173,80 +1194,54 @@
                 }
             });
 
-            // ============ NAVEGAÇÃO ============
             function navigateTo(sectionName, data = null) {
                 if (sectionName === 'text-view' && data) {
                     currentTextData = data;
                 }
                 currentSection = sectionName;
-                // Atualizar seções
                 allSections.forEach(s => s.classList.remove('active'));
+                sectionHome.style.display = 'none';
+                sectionTextView.style.display = 'none';
+                sectionAbout.style.display = 'none';
+                sectionWhyMascot.style.display = 'none';
+                sectionCredits.style.display = 'none';
                 switch (sectionName) {
                     case 'home':
                         sectionHome.classList.add('active');
                         sectionHome.style.display = 'block';
-                        sectionTextView.style.display = 'none';
-                        sectionAbout.style.display = 'none';
-                        sectionWhyMascot.style.display = 'none';
-                        sectionCredits.style.display = 'none';
                         resultsContainer.style.display = 'none';
                         resultsContainer.innerHTML = '';
                         searchInput.value = '';
+                        resetTutorial();
                         initHomeBubble();
                         break;
                     case 'text-view':
-                        sectionHome.style.display = 'none';
                         sectionTextView.classList.add('active');
                         sectionTextView.style.display = 'block';
-                        sectionAbout.style.display = 'none';
-                        sectionWhyMascot.style.display = 'none';
-                        sectionCredits.style.display = 'none';
                         if (currentTextData) renderTextView(currentTextData);
                         break;
                     case 'about':
-                        sectionHome.style.display = 'none';
-                        sectionTextView.style.display = 'none';
                         sectionAbout.classList.add('active');
                         sectionAbout.style.display = 'block';
-                        sectionWhyMascot.style.display = 'none';
-                        sectionCredits.style.display = 'none';
                         break;
                     case 'why-mascot':
-                        sectionHome.style.display = 'none';
-                        sectionTextView.style.display = 'none';
-                        sectionAbout.style.display = 'none';
                         sectionWhyMascot.classList.add('active');
                         sectionWhyMascot.style.display = 'block';
-                        sectionCredits.style.display = 'none';
                         break;
                     case 'credits':
-                        sectionHome.style.display = 'none';
-                        sectionTextView.style.display = 'none';
-                        sectionAbout.style.display = 'none';
-                        sectionWhyMascot.style.display = 'none';
                         sectionCredits.classList.add('active');
                         sectionCredits.style.display = 'block';
                         break;
                 }
-                // Atualizar menu
                 document.querySelectorAll('.header-nav a').forEach(a => a.classList.remove('active'));
                 const navLink = document.querySelector(`.header-nav a[data-nav="${sectionName}"]`);
-                if (navLink) navLink.classList.add('active');
-                if (sectionName === 'text-view') {
-                    document.querySelectorAll('.header-nav a').forEach(a => a.classList.remove('active'));
-                }
-                // Fechar menu mobile
+                if (navLink && sectionName !== 'text-view') navLink.classList.add('active');
                 headerNav.classList.remove('open');
                 mobileMenuBtn.textContent = '☰';
-                // Scroll to top
                 window.scrollTo({ top: 0, behavior: 'smooth' });
-                // Atualizar hash
-                if (sectionName !== 'text-view') {
-                    window.location.hash = sectionName;
-                }
+                if (sectionName !== 'text-view') window.location.hash = sectionName;
             }
 
-            // Links do menu
             document.querySelectorAll('.header-nav a').forEach(link => {
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
@@ -1255,7 +1250,6 @@
                 });
             });
 
-            // Hash change
             window.addEventListener('hashchange', () => {
                 const hash = window.location.hash.replace('#', '');
                 const validSections = ['home', 'about', 'why-mascot', 'credits'];
@@ -1265,7 +1259,6 @@
                 }
             });
 
-            // ============ EFEITO DE DIGITAÇÃO ============
             function typeText(element, text, speed = 35, onComplete = null) {
                 if (typingTimeout) clearTimeout(typingTimeout);
                 element.textContent = '';
@@ -1295,11 +1288,78 @@
             }
 
             function initHomeBubble() {
-                const fullText = 'Oi! Bem-vindo 😊 Aqui você pode encontrar mensagens especiais feitas para amigos. Digite seu nome abaixo para procurar seus textos.';
+                const fullText =
+                    'Oi! Bem-vindo 😊 Aqui você pode encontrar mensagens especiais feitas para amigos. Digite seu nome abaixo para procurar seus textos.';
                 typeText(bubbleHomeText, fullText, 32);
             }
 
-            // ============ BUSCA ============
+            // ---- TUTORIAL ----
+            function resetTutorial() {
+                tutorialStep = 0;
+                tutorialArrow.style.display = 'none';
+                tutorialBtn.style.display = 'inline-block';
+                tutorialNextBtn.style.display = 'none';
+            }
+
+            function positionArrow(targetEl) {
+                if (!targetEl) return;
+                const rect = targetEl.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const topY = rect.top;
+                tutorialArrow.style.left = centerX + 'px';
+                tutorialArrow.style.top = topY + 'px';
+                tutorialArrow.style.display = 'block';
+            }
+
+            function positionArrowForCurrentStep() {
+                if (tutorialStep === 1) positionArrow(searchInput);
+                else if (tutorialStep === 2) positionArrow(searchBtn);
+            }
+
+            window.addEventListener('scroll', () => {
+                if (tutorialStep !== 0) positionArrowForCurrentStep();
+            });
+            window.addEventListener('resize', () => {
+                if (tutorialStep !== 0) positionArrowForCurrentStep();
+            });
+
+            tutorialBtn.addEventListener('click', () => {
+                tutorialBtn.style.display = 'none';
+                tutorialStep = 1;
+                typeText(bubbleHomeText, "tá bom, já que você quer vou te ajudar 😄", 30, () => {
+                    setTimeout(() => {
+                        typeText(bubbleHomeText,
+                            "agora vou te ensinar como ver se tem texto pra você, primeiro você coloca o seu nome aqui 👇",
+                            25, () => {
+                                positionArrow(searchInput);
+                                tutorialNextBtn.style.display = 'inline-block';
+                            });
+                    }, 1000);
+                });
+            });
+
+            tutorialNextBtn.addEventListener('click', () => {
+                if (tutorialStep === 1) {
+                    tutorialStep = 2;
+                    tutorialNextBtn.style.display = 'none';
+                    typeText(bubbleHomeText,
+                        "agora você pode procurar se tem algum texto para você, clique em Procurar 👇",
+                        25, () => {
+                            positionArrow(searchBtn);
+                        });
+                }
+            });
+
+            function tutorialFinal() {
+                if (tutorialStep !== 2) return;
+                tutorialStep = 0;
+                tutorialArrow.style.display = 'none';
+                typeText(bubbleHomeText, "boaa, agora pode escolher qual você quer ler 😊", 25, () => {
+                    tutorialBtn.style.display = 'inline-block';
+                });
+            }
+
+            // ---- BUSCA ----
             function performSearch() {
                 const query = searchInput.value.trim();
                 if (!query) {
@@ -1323,27 +1383,21 @@
                   <div class="mascot-avatar">
                     <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <ellipse cx="40" cy="54" rx="26" ry="21" fill="#161628" stroke="#2a2a42" stroke-width="1.5"/>
+                      <path d="M40 48 C40 48 36 43 36 40 C36 37 39 35 40 38 C41 35 44 37 44 40 C44 43 40 48 40 48Z" fill="#f26b6b" opacity="0.9"/>
+                      <path d="M23 56 Q28 53 32 58" stroke="#69a9f5" stroke-width="2" fill="none" stroke-linecap="round"/>
+                      <path d="M57 56 Q52 53 48 58" stroke="#69a9f5" stroke-width="2" fill="none" stroke-linecap="round"/>
                       <circle cx="40" cy="33" r="19" fill="#1a1a32" stroke="#2a2a48" stroke-width="1.5"/>
                       <circle cx="32" cy="29" r="5.5" fill="#f2f2fa"/><circle cx="48" cy="29" r="5.5" fill="#f2f2fa"/>
                       <circle cx="32" cy="29" r="2.8" fill="#15152a"/><circle cx="48" cy="29" r="2.8" fill="#15152a"/>
                       <circle cx="33.8" cy="27.2" r="1.2" fill="#fff"/><circle cx="49.8" cy="27.2" r="1.2" fill="#fff"/>
-                      <path d="M38 42 Q40 38 42 42" stroke="#e57373" stroke-width="2" fill="none" stroke-linecap="round"/>
+                      <path d="M38 42 Q40 38 42 42" stroke="#f26b6b" stroke-width="2" fill="none" stroke-linecap="round"/>
                       <rect x="35.5" y="13" width="9" height="13" rx="4.5" fill="#1a1a32" stroke="#2a2a48" stroke-width="1.2"/>
-                      <line x1="20" y1="24" x2="28" y2="18" stroke="#64b5f6" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
-                      <line x1="60" y1="24" x2="52" y2="18" stroke="#64b5f6" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
+                      <line x1="20" y1="24" x2="28" y2="18" stroke="#69a9f5" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
+                      <line x1="60" y1="24" x2="52" y2="18" stroke="#69a9f5" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
                     </svg>
                   </div>
-                  <div class="speech-bubble" id="bubble-no-results">
-                    <span>Hm… parece que ainda não existe nenhum texto pra esse nome 😅</span>
-                  </div>
+                  <div class="speech-bubble">Hm… parece que ainda não existe nenhum texto pra esse nome 😅</div>
                 </div>`;
-                    // Animar o balão
-                    const bubbleNoResults = document.getElementById('bubble-no-results');
-                    if (bubbleNoResults) {
-                        bubbleNoResults.style.animation = 'none';
-                        bubbleNoResults.offsetHeight;
-                        bubbleNoResults.style.animation = 'bubbleIn 0.5s ease forwards';
-                    }
                 } else {
                     resultsContainer.innerHTML = `
                 <p class="results-count">Encontrado(s) ${results.length} texto(s) para "<strong>${escapeHTML(query)}</strong>"</p>
@@ -1358,18 +1412,19 @@
                     </div>
                   `).join('')}
                 </div>`;
-                    // Event listeners nos cards
                     resultsContainer.querySelectorAll('.result-card').forEach((card, i) => {
-                        card.addEventListener('click', () => {
-                            navigateTo('text-view', results[i]);
-                        });
+                        card.addEventListener('click', () => navigateTo('text-view', results[
+                            i]));
                         card.addEventListener('keydown', (e) => {
                             if (e.key === 'Enter') navigateTo('text-view', results[i]);
                         });
                     });
                 }
-                // Scroll para resultados
                 resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+                if (tutorialStep === 2) {
+                    tutorialFinal();
+                }
             }
 
             searchBtn.addEventListener('click', performSearch);
@@ -1377,7 +1432,6 @@
                 if (e.key === 'Enter') performSearch();
             });
 
-            // ============ RENDERIZAR PÁGINA DO TEXTO ============
             function renderTextView(data) {
                 const starCount = 30;
                 let starsHTML = '';
@@ -1389,7 +1443,6 @@
                     starsHTML +=
                         `<span class="star-particle" style="top:${top}%;left:${left}%;--dur:${dur}s;--delay:${delay}s;"></span>`;
                 }
-
                 sectionTextView.innerHTML = `
             <div class="text-page-wrapper">
               <div class="text-article">
@@ -1408,18 +1461,21 @@
                   </div>
                 ` : ''}
               </div>
-              <div class="mascot-wrapper centered mt-32" id="mascot-end">
+              <div class="mascot-wrapper centered mt-32">
                 <div class="mascot-avatar">
                   <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <ellipse cx="40" cy="54" rx="26" ry="21" fill="#161628" stroke="#2a2a42" stroke-width="1.5"/>
+                    <path d="M40 48 C40 48 36 43 36 40 C36 37 39 35 40 38 C41 35 44 37 44 40 C44 43 40 48 40 48Z" fill="#f26b6b" opacity="0.9"/>
+                    <path d="M23 56 Q28 53 32 58" stroke="#69a9f5" stroke-width="2" fill="none" stroke-linecap="round"/>
+                    <path d="M57 56 Q52 53 48 58" stroke="#69a9f5" stroke-width="2" fill="none" stroke-linecap="round"/>
                     <circle cx="40" cy="33" r="19" fill="#1a1a32" stroke="#2a2a48" stroke-width="1.5"/>
                     <circle cx="32" cy="29" r="5.5" fill="#f2f2fa"/><circle cx="48" cy="29" r="5.5" fill="#f2f2fa"/>
                     <circle cx="32" cy="29" r="2.8" fill="#15152a"/><circle cx="48" cy="29" r="2.8" fill="#15152a"/>
                     <circle cx="33.8" cy="27.2" r="1.2" fill="#fff"/><circle cx="49.8" cy="27.2" r="1.2" fill="#fff"/>
-                    <path d="M35 40 Q40 45 45 40" stroke="#e57373" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+                    <path d="M35 40 Q40 45 45 40" stroke="#f26b6b" stroke-width="2.2" fill="none" stroke-linecap="round"/>
                     <rect x="35.5" y="13" width="9" height="13" rx="4.5" fill="#1a1a32" stroke="#2a2a48" stroke-width="1.2"/>
-                    <line x1="20" y1="24" x2="28" y2="18" stroke="#64b5f6" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
-                    <line x1="60" y1="24" x2="52" y2="18" stroke="#64b5f6" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
+                    <line x1="20" y1="24" x2="28" y2="18" stroke="#69a9f5" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
+                    <line x1="60" y1="24" x2="52" y2="18" stroke="#69a9f5" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
                   </svg>
                 </div>
                 <div class="speech-bubble" id="bubble-end">
@@ -1430,13 +1486,11 @@
                 <button class="btn btn-outline" onclick="window._navigateHome()">Voltar ao começo</button>
               </div>
             </div>`;
-                // Digitar fala final
                 setTimeout(() => {
                     const endTextEl = document.getElementById('bubble-end-text');
                     const endCursorEl = document.getElementById('cursor-end');
                     if (endTextEl) {
-                        const fullEndText =
-                            'Esse foi o fim da mensagem 😊 Espero que tenha gostado.';
+                        const fullEndText = 'Esse foi o fim da mensagem 😊 Espero que tenha gostado.';
                         if (typingTimeout) clearTimeout(typingTimeout);
                         endTextEl.textContent = '';
                         if (endCursorEl) endCursorEl.style.display = 'inline-block';
@@ -1458,11 +1512,9 @@
                         typeEnd();
                     }
                 }, 400);
-                // Expor função global para o botão
                 window._navigateHome = () => navigateTo('home');
             }
 
-            // ============ UTILITÁRIOS ============
             function escapeHTML(str) {
                 const div = document.createElement('div');
                 div.textContent = str;
@@ -1475,7 +1527,6 @@
                 setTimeout(() => toast.classList.remove('show'), 2500);
             }
 
-            // ============ SCROLL HEADER ============
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 50) {
                     header.classList.add('scrolled');
@@ -1484,21 +1535,17 @@
                 }
             });
 
-            // ============ INIT ============
-            // Verificar hash inicial
             const initialHash = window.location.hash.replace('#', '');
             const validSections = ['home', 'about', 'why-mascot', 'credits'];
             if (validSections.includes(initialHash) && initialHash !== 'home') {
                 navigateTo(initialHash);
             }
-            // Se não houver hash, fica na home (já ativa por padrão)
-            if (!initialHash) {
-                window.location.hash = 'home';
-            }
+            if (!initialHash) window.location.hash = 'home';
 
             console.log('🕷️ Arakki — Guardião de Mensagens está pronto!');
-            console.log('💙 Feito com carinho para celebrar amizades.');
+            console.log('💙 Agora com tutorial interativo e visual renovado.');
         })();
     </script>
 </body>
 </html>
+```
