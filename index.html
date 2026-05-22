@@ -1,6 +1,6 @@
-Pronto! Fiz várias melhorias para deixar o site mais atraente e adicionei o tutorial interativo que você pediu. Agora o mascote **Arakki** ganhou detalhes vermelhos e azuis no corpo (um coração no peito e listras azuis nas laterais). O visual também está mais claro e elegante, com cores vibrantes e um fundo que transmite mais acolhimento.
+Vou transformar o visual do site para algo vibrante e inspirado no Homem-Aranha, com teias decorativas e um mascote que vai fazer todo mundo pensar: "É o Homem-Aranha?!" 🕷️✨
 
-Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te guiar passo a passo, com setinhas apontando para o campo de nome e para o botão de busca. Depois que você pesquisar, ele ainda comemora junto com você! 🕷️✨
+Agora o fundo é claro e colorido, com vermelho, azul e detalhes em teia. O mascote **Arakki** ganhou máscara, olhos grandes e até teias nas costas — tudo com um toque fofo e acolhedor. As animações, partículas e o tutorial interativo continuam funcionando perfeitamente. Pode testar!
 
 ```html
 <!DOCTYPE html>
@@ -8,38 +8,39 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arakki — Mensagens para Amigos</title>
+    <title>Arakki — Mensagens Especiais</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Bangers&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #0f0f1a;
-            --bg-elevated: #19192b;
-            --bg-card: rgba(22, 22, 38, 0.8);
-            --bg-card-hover: rgba(28, 28, 48, 0.9);
-            --surface: rgba(255, 255, 255, 0.04);
-            --surface-hover: rgba(255, 255, 255, 0.08);
-            --text: #f0f0f8;
-            --text-secondary: #b0b0c8;
-            --text-muted: #7a7a95;
-            --accent-red: #f26b6b;
-            --accent-red-glow: rgba(242, 107, 107, 0.35);
-            --accent-blue: #69a9f5;
-            --accent-blue-glow: rgba(105, 169, 245, 0.3);
-            --accent-gold: #d4b68c;
-            --border: rgba(255, 255, 255, 0.08);
-            --border-glow: rgba(255, 255, 255, 0.14);
+            --bg: #f5f0ff;
+            --bg-elevated: #ffffff;
+            --bg-card: rgba(255, 255, 255, 0.85);
+            --bg-card-hover: rgba(255, 255, 255, 0.95);
+            --surface: rgba(0, 0, 0, 0.03);
+            --surface-hover: rgba(0, 0, 0, 0.06);
+            --text: #1a1a2e;
+            --text-secondary: #3b3b55;
+            --text-muted: #6b6b80;
+            --accent-red: #e23636;
+            --accent-red-glow: rgba(226, 54, 54, 0.25);
+            --accent-blue: #2b55df;
+            --accent-blue-glow: rgba(43, 85, 223, 0.2);
+            --accent-gold: #c4963a;
+            --border: rgba(0, 0, 0, 0.06);
+            --border-glow: rgba(0, 0, 0, 0.1);
             --radius-sm: 10px;
             --radius: 16px;
             --radius-lg: 24px;
             --radius-xl: 32px;
-            --shadow-card: 0 4px 30px rgba(0, 0, 0, 0.5), 0 1px 6px rgba(0, 0, 0, 0.4);
-            --shadow-glow-red: 0 0 50px rgba(242, 107, 107, 0.15), 0 0 90px rgba(242, 107, 107, 0.06);
-            --shadow-glow-blue: 0 0 50px rgba(105, 169, 245, 0.15), 0 0 90px rgba(105, 169, 245, 0.06);
+            --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04);
+            --shadow-glow-red: 0 0 40px rgba(226, 54, 54, 0.15), 0 0 80px rgba(226, 54, 54, 0.06);
+            --shadow-glow-blue: 0 0 40px rgba(43, 85, 223, 0.15), 0 0 80px rgba(43, 85, 223, 0.06);
             --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
             --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
             --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
             --font-serif: 'Playfair Display', Georgia, serif;
+            --font-comic: 'Bangers', cursive;
         }
 
         *,
@@ -59,7 +60,8 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
 
         body {
             font-family: var(--font-sans);
-            background: radial-gradient(ellipse at 50% 0%, #1e1e35 0%, #0a0a14 85%);
+            background: linear-gradient(135deg, #f8f4ff 0%, #e8eeff 40%, #ffe8e8 100%);
+            background-attachment: fixed;
             color: var(--text);
             min-height: 100vh;
             overflow-x: hidden;
@@ -70,6 +72,54 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
             -webkit-user-select: none;
         }
 
+        /* Teias decorativas no fundo */
+        .web-bg {
+            position: fixed;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.12;
+        }
+        .web-top-left {
+            top: -20px;
+            left: -20px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle at 30% 30%, rgba(226,54,54,0.15) 0%, transparent 60%),
+                repeating-linear-gradient(45deg, rgba(43,85,223,0.1) 0px, rgba(43,85,223,0.1) 1px, transparent 1px, transparent 20px),
+                repeating-linear-gradient(-45deg, rgba(43,85,223,0.1) 0px, rgba(43,85,223,0.1) 1px, transparent 1px, transparent 20px);
+            border-radius: 50%;
+            transform: rotate(15deg);
+        }
+        .web-bottom-right {
+            bottom: -30px;
+            right: -30px;
+            width: 280px;
+            height: 280px;
+            background: radial-gradient(circle at 70% 70%, rgba(226,54,54,0.15) 0%, transparent 60%),
+                repeating-linear-gradient(135deg, rgba(43,85,223,0.08) 0px, rgba(43,85,223,0.08) 1px, transparent 1px, transparent 22px),
+                repeating-linear-gradient(-135deg, rgba(43,85,223,0.08) 0px, rgba(43,85,223,0.08) 1px, transparent 1px, transparent 22px);
+            border-radius: 50%;
+            transform: rotate(-20deg);
+        }
+        .web-bottom-left {
+            bottom: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle at 20% 80%, rgba(43,85,223,0.1) 0%, transparent 70%),
+                repeating-linear-gradient(60deg, rgba(226,54,54,0.07) 0px, rgba(226,54,54,0.07) 1px, transparent 1px, transparent 18px);
+            border-radius: 50%;
+        }
+        .web-top-right {
+            top: 0;
+            right: 0;
+            width: 220px;
+            height: 220px;
+            background: radial-gradient(circle at 80% 20%, rgba(226,54,54,0.12) 0%, transparent 70%),
+                repeating-linear-gradient(30deg, rgba(43,85,223,0.06) 0px, rgba(43,85,223,0.06) 1px, transparent 1px, transparent 20px);
+            border-radius: 50%;
+        }
+
         #particles-canvas {
             position: fixed;
             top: 0;
@@ -78,14 +128,14 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
             height: 100%;
             pointer-events: none;
             z-index: 0;
-            opacity: 0.8;
+            opacity: 0.5;
         }
 
         #loading-screen {
             position: fixed;
             inset: 0;
             z-index: 9999;
-            background: #0a0a14;
+            background: #f8f4ff;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -154,7 +204,7 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
             z-index: 100;
             width: calc(100% - 32px);
             max-width: 700px;
-            background: rgba(20, 20, 34, 0.8);
+            background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
             border: 1px solid var(--border);
@@ -164,11 +214,11 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
             align-items: center;
             justify-content: space-between;
             transition: var(--transition);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
         }
         #site-header.scrolled {
-            background: rgba(12, 12, 22, 0.92);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
         }
         .header-logo {
             display: flex;
@@ -176,15 +226,16 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
             gap: 10px;
             cursor: pointer;
             text-decoration: none;
-            color: var(--text);
+            color: var(--accent-red);
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             letter-spacing: -0.01em;
             white-space: nowrap;
+            font-family: var(--font-comic);
         }
         .header-logo .logo-dot {
-            width: 10px;
-            height: 10px;
+            width: 14px;
+            height: 14px;
             border-radius: 50%;
             background: var(--accent-red);
             box-shadow: 0 0 12px var(--accent-red-glow);
@@ -196,7 +247,7 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
                 box-shadow: 0 0 12px var(--accent-red-glow);
             }
             50% {
-                box-shadow: 0 0 24px var(--accent-red-glow), 0 0 40px rgba(242, 107, 107, 0.2);
+                box-shadow: 0 0 24px var(--accent-red-glow), 0 0 40px rgba(226, 54, 54, 0.2);
             }
         }
         .header-nav {
@@ -219,11 +270,11 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
         }
         .header-nav a:hover,
         .header-nav a.active {
-            color: var(--text);
-            background: var(--surface-hover);
+            color: var(--accent-red);
+            background: rgba(226, 54, 54, 0.08);
         }
         .header-nav a.active {
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(226, 54, 54, 0.15);
             font-weight: 600;
         }
         .mobile-menu-btn {
@@ -232,7 +283,7 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
             border: none;
             cursor: pointer;
             padding: 8px;
-            color: var(--text);
+            color: var(--accent-red);
             font-size: 1.5rem;
             line-height: 1;
         }
@@ -248,7 +299,7 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
                 top: 80px;
                 left: 50%;
                 transform: translateX(-50%) translateY(-16px);
-                background: rgba(15, 15, 26, 0.95);
+                background: rgba(255, 255, 255, 0.95);
                 backdrop-filter: blur(30px);
                 -webkit-backdrop-filter: blur(30px);
                 border: 1px solid var(--border);
@@ -262,7 +313,7 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
                 visibility: hidden;
                 pointer-events: none;
                 transition: all 0.3s ease;
-                box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
+                box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1);
                 z-index: 99;
             }
             .header-nav.open {
@@ -327,11 +378,12 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
         }
         .mascot-avatar {
             flex-shrink: 0;
-            width: 72px;
-            height: 72px;
+            width: 80px;
+            height: 80px;
             position: relative;
             animation: mascotIdle 3s ease-in-out infinite;
             cursor: default;
+            filter: drop-shadow(0 8px 16px rgba(226, 54, 54, 0.3));
         }
         @keyframes mascotIdle {
             0%,
@@ -351,7 +403,6 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
         .mascot-avatar svg {
             width: 100%;
             height: 100%;
-            filter: drop-shadow(0 8px 20px rgba(105, 169, 245, 0.25));
         }
         .speech-bubble {
             position: relative;
@@ -361,12 +412,13 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
             border: 1px solid var(--border-glow);
             border-radius: 20px;
             padding: 16px 20px;
-            max-width: 420px;
+            max-width: 400px;
             color: var(--text);
             font-size: 0.95rem;
             line-height: 1.55;
             box-shadow: var(--shadow-card);
             animation: bubbleIn 0.5s ease forwards;
+            background: white;
         }
         @keyframes bubbleIn {
             from {
@@ -387,12 +439,12 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
             height: 0;
             border-top: 10px solid transparent;
             border-bottom: 10px solid transparent;
-            border-right: 12px solid var(--bg-card);
-            filter: drop-shadow(-2px 2px 4px rgba(0, 0, 0, 0.3));
+            border-right: 12px solid white;
+            filter: drop-shadow(-2px 2px 4px rgba(0, 0, 0, 0.06));
         }
         @media (max-width: 500px) {
             .speech-bubble {
-                max-width: 260px;
+                max-width: 250px;
                 font-size: 0.85rem;
                 padding: 12px 16px;
                 border-radius: 16px;
@@ -402,18 +454,18 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
                 left: -8px;
                 border-top: 8px solid transparent;
                 border-bottom: 8px solid transparent;
-                border-right: 10px solid var(--bg-card);
+                border-right: 10px solid white;
             }
             .mascot-avatar {
-                width: 56px;
-                height: 56px;
+                width: 64px;
+                height: 64px;
             }
         }
         .typing-cursor {
             display: inline-block;
             width: 2px;
             height: 1em;
-            background: var(--accent-blue);
+            background: var(--accent-red);
             margin-left: 2px;
             animation: blink 0.7s step-end infinite;
             vertical-align: text-bottom;
@@ -434,18 +486,18 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
             text-align: center;
             box-shadow: var(--shadow-card);
             transition: var(--transition);
+            background: white;
         }
         .search-card:hover {
-            border-color: var(--border-glow);
-            box-shadow: var(--shadow-card), var(--shadow-glow-blue);
+            border-color: var(--accent-red);
+            box-shadow: var(--shadow-card), var(--shadow-glow-red);
         }
         .search-card h2 {
-            font-family: var(--font-serif);
-            font-size: 1.6rem;
-            font-weight: 600;
+            font-family: var(--font-comic);
+            font-size: 1.8rem;
             margin-bottom: 8px;
-            color: var(--text);
-            letter-spacing: -0.01em;
+            color: var(--accent-red);
+            letter-spacing: 0.02em;
         }
         .search-card p {
             color: var(--text-secondary);
@@ -463,8 +515,8 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
             min-width: 200px;
             padding: 14px 20px;
             border-radius: 50px;
-            border: 1px solid var(--border);
-            background: rgba(255, 255, 255, 0.04);
+            border: 2px solid rgba(226, 54, 54, 0.2);
+            background: white;
             color: var(--text);
             font-size: 1rem;
             font-family: var(--font-sans);
@@ -473,9 +525,8 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
             letter-spacing: 0.01em;
         }
         .search-input-group input:focus {
-            border-color: var(--accent-blue);
-            box-shadow: 0 0 0 3px rgba(105, 169, 245, 0.15);
-            background: rgba(255, 255, 255, 0.07);
+            border-color: var(--accent-red);
+            box-shadow: 0 0 0 3px rgba(226, 54, 54, 0.15);
         }
         .search-input-group input::placeholder {
             color: var(--text-muted);
@@ -495,12 +546,14 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
             overflow: hidden;
         }
         .btn-primary {
-            background: linear-gradient(135deg, #f26b6b, #c43e3e);
+            background: linear-gradient(135deg, #e23636, #b71c1c);
             color: #fff;
-            box-shadow: 0 4px 24px rgba(242, 107, 107, 0.35);
+            box-shadow: 0 4px 20px rgba(226, 54, 54, 0.4);
+            border: 2px solid #fff;
+            font-weight: 700;
         }
         .btn-primary:hover {
-            box-shadow: 0 6px 32px rgba(242, 107, 107, 0.5);
+            box-shadow: 0 6px 28px rgba(226, 54, 54, 0.55);
             transform: translateY(-2px);
         }
         .btn-primary:active {
@@ -508,22 +561,25 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
         }
         .btn-outline {
             background: transparent;
-            border: 1px solid var(--border-glow);
-            color: var(--text);
+            border: 2px solid var(--accent-blue);
+            color: var(--accent-blue);
+            font-weight: 600;
         }
         .btn-outline:hover {
-            background: var(--surface-hover);
-            border-color: var(--accent-blue);
-            box-shadow: 0 0 24px rgba(105, 169, 245, 0.15);
+            background: rgba(43, 85, 223, 0.05);
+            box-shadow: 0 0 20px rgba(43, 85, 223, 0.1);
         }
         .btn-ghost {
             background: transparent;
             color: var(--text-secondary);
             padding: 10px 20px;
+            border: 2px dashed var(--accent-red);
+            color: var(--accent-red);
+            font-weight: 600;
         }
         .btn-ghost:hover {
-            color: var(--text);
-            background: var(--surface-hover);
+            background: rgba(226, 54, 54, 0.05);
+            border-style: solid;
         }
 
         .results-list {
@@ -533,7 +589,7 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
             margin-top: 20px;
         }
         .result-card {
-            background: var(--bg-card);
+            background: white;
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid var(--border);
@@ -545,12 +601,12 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
             align-items: center;
             justify-content: space-between;
             gap: 12px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
             text-align: left;
         }
         .result-card:hover {
             border-color: var(--accent-blue);
-            background: var(--bg-card-hover);
+            background: #f8faff;
             box-shadow: var(--shadow-card), var(--shadow-glow-blue);
             transform: translateY(-3px);
         }
@@ -566,12 +622,8 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
         }
         .result-card .result-arrow {
             font-size: 1.2rem;
-            color: var(--text-muted);
-            transition: var(--transition-fast);
-        }
-        .result-card:hover .result-arrow {
             color: var(--accent-blue);
-            transform: translateX(4px);
+            transition: var(--transition-fast);
         }
         .results-count {
             text-align: center;
@@ -588,13 +640,13 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
             padding: 0 20px;
         }
         .text-article {
-            background: var(--bg-card);
+            background: white;
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--border);
             border-radius: var(--radius-lg);
             padding: 36px 30px;
-            box-shadow: var(--shadow-card), var(--shadow-glow-blue);
+            box-shadow: var(--shadow-card);
             position: relative;
             overflow: hidden;
         }
@@ -605,18 +657,7 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
             right: -60px;
             width: 180px;
             height: 180px;
-            background: radial-gradient(circle, rgba(105, 169, 245, 0.08) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-        .text-article::after {
-            content: '';
-            position: absolute;
-            bottom: -40px;
-            left: -40px;
-            width: 140px;
-            height: 140px;
-            background: radial-gradient(circle, rgba(242, 107, 107, 0.06) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(226, 54, 54, 0.06) 0%, transparent 70%);
             border-radius: 50%;
             pointer-events: none;
         }
@@ -627,11 +668,11 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
             z-index: 1;
         }
         .text-article .text-meta h2 {
-            font-family: var(--font-serif);
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: var(--text);
-            letter-spacing: -0.01em;
+            font-family: var(--font-comic);
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--accent-red);
+            letter-spacing: 0.02em;
             margin-bottom: 4px;
         }
         .text-article .text-meta .text-date {
@@ -659,9 +700,6 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
                 line-height: 1.7;
                 text-align: left;
             }
-            .text-article .text-meta h2 {
-                font-size: 1.4rem;
-            }
         }
         .verses-section {
             margin-top: 32px;
@@ -670,11 +708,11 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
         }
         .verses-section h3 {
             text-align: center;
-            font-family: var(--font-serif);
-            font-size: 1.2rem;
+            font-family: var(--font-comic);
+            font-size: 1.3rem;
             color: var(--accent-gold);
             margin-bottom: 16px;
-            font-weight: 500;
+            font-weight: 400;
             letter-spacing: 0.03em;
         }
         .verse-cards {
@@ -684,70 +722,37 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
             justify-content: center;
         }
         .verse-card {
-            background: rgba(212, 182, 140, 0.06);
-            border: 1px solid rgba(212, 182, 140, 0.2);
+            background: rgba(226, 54, 54, 0.04);
+            border: 1px solid rgba(226, 54, 54, 0.2);
             border-radius: var(--radius);
             padding: 16px 20px;
             font-family: var(--font-serif);
             font-style: italic;
-            font-size: 1rem;
-            color: var(--accent-gold);
+            font-size: 0.95rem;
+            color: var(--accent-red);
             text-align: center;
             min-width: 140px;
             flex: 1;
             max-width: 280px;
             transition: var(--transition);
-            position: relative;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
-            letter-spacing: 0.02em;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
         }
         .verse-card:hover {
-            background: rgba(212, 182, 140, 0.12);
-            border-color: rgba(212, 182, 140, 0.4);
-            box-shadow: 0 0 30px rgba(212, 182, 140, 0.15);
-            transform: translateY(-2px);
+            background: rgba(226, 54, 54, 0.08);
+            border-color: rgba(226, 54, 54, 0.4);
         }
         .verse-card::before {
-            content: '✦';
+            content: '🕸️';
             display: block;
-            font-size: 0.7rem;
+            font-size: 0.9rem;
             margin-bottom: 6px;
-            opacity: 0.6;
+            opacity: 0.7;
             font-style: normal;
-        }
-        .decorative-stars {
-            position: absolute;
-            pointer-events: none;
-            z-index: 0;
-            inset: 0;
-            overflow: hidden;
-        }
-        .star-particle {
-            position: absolute;
-            width: 3px;
-            height: 3px;
-            background: #fff;
-            border-radius: 50%;
-            animation: twinkle var(--dur) ease-in-out infinite;
-            animation-delay: var(--delay);
-            opacity: 0;
-        }
-        @keyframes twinkle {
-            0%,
-            100% {
-                opacity: 0.15;
-                transform: scale(1);
-            }
-            50% {
-                opacity: 0.7;
-                transform: scale(1.8);
-            }
         }
 
         .content-card {
-            background: var(--bg-card);
+            background: white;
             backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--border);
             border-radius: var(--radius-lg);
             padding: 32px 28px;
@@ -755,10 +760,11 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
             text-align: center;
         }
         .content-card h2 {
-            font-family: var(--font-serif);
-            font-size: 1.6rem;
+            font-family: var(--font-comic);
+            font-size: 1.8rem;
             margin-bottom: 12px;
-            font-weight: 600;
+            font-weight: 400;
+            color: var(--accent-blue);
         }
         .content-card p {
             color: var(--text-secondary);
@@ -766,14 +772,10 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
             margin-bottom: 10px;
             font-size: 0.95rem;
         }
-        .content-card .highlight {
-            color: var(--accent-blue);
-            font-weight: 500;
-        }
         .divider {
             width: 60px;
             height: 2px;
-            background: linear-gradient(90deg, transparent, var(--accent-red), transparent);
+            background: linear-gradient(90deg, transparent, var(--accent-red), var(--accent-blue), transparent);
             margin: 16px auto;
             border-radius: 2px;
         }
@@ -792,23 +794,22 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
             bottom: 30px;
             left: 50%;
             transform: translateX(-50%) translateY(100px);
-            background: var(--bg-card);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--border-glow);
+            background: white;
+            border: 1px solid var(--accent-red);
             padding: 14px 24px;
             border-radius: 50px;
-            color: var(--text);
+            color: var(--accent-red);
             font-size: 0.9rem;
             z-index: 200;
             transition: transform 0.4s ease;
             box-shadow: var(--shadow-card);
             pointer-events: none;
+            font-weight: 600;
         }
         .toast.show {
             transform: translateX(-50%) translateY(0);
         }
 
-        /* Tutorial arrow */
         .tutorial-arrow {
             position: fixed;
             z-index: 150;
@@ -825,7 +826,7 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
             height: 0;
             border-left: 12px solid transparent;
             border-right: 12px solid transparent;
-            border-top: 15px solid var(--accent-blue);
+            border-top: 15px solid var(--accent-red);
             margin: 0 auto;
             animation: arrowBounce 1s ease-in-out infinite;
         }
@@ -842,9 +843,6 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
         .text-center {
             text-align: center;
         }
-        .mt-8 {
-            margin-top: 8px;
-        }
         .mt-16 {
             margin-top: 16px;
         }
@@ -854,39 +852,35 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
         .mt-32 {
             margin-top: 32px;
         }
-        .mb-16 {
-            margin-bottom: 16px;
-        }
-        .flex-center {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-        }
     </style>
 </head>
 <body>
+
+    <!-- Teias decorativas -->
+    <div class="web-bg web-top-left"></div>
+    <div class="web-bg web-bottom-right"></div>
+    <div class="web-bg web-bottom-left"></div>
+    <div class="web-bg web-top-right"></div>
 
     <canvas id="particles-canvas"></canvas>
 
     <div id="loading-screen">
         <div class="loading-mascot-container">
-            <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <ellipse cx="40" cy="54" rx="26" ry="21" fill="#161628" stroke="#2a2a42" stroke-width="1.5"/>
-                <path d="M40 48 C40 48 36 43 36 40 C36 37 39 35 40 38 C41 35 44 37 44 40 C44 43 40 48 40 48Z" fill="#f26b6b" opacity="0.9"/>
-                <path d="M23 56 Q28 53 32 58" stroke="#69a9f5" stroke-width="2" fill="none" stroke-linecap="round"/>
-                <path d="M57 56 Q52 53 48 58" stroke="#69a9f5" stroke-width="2" fill="none" stroke-linecap="round"/>
-                <circle cx="40" cy="33" r="19" fill="#1a1a32" stroke="#2a2a48" stroke-width="1.5"/>
-                <circle cx="32" cy="29" r="5.5" fill="#f2f2fa"/>
-                <circle cx="48" cy="29" r="5.5" fill="#f2f2fa"/>
-                <circle cx="32" cy="29" r="2.8" fill="#15152a"/>
-                <circle cx="48" cy="29" r="2.8" fill="#15152a"/>
-                <circle cx="33.8" cy="27.2" r="1.2" fill="#fff"/>
-                <circle cx="49.8" cy="27.2" r="1.2" fill="#fff"/>
-                <path d="M35 40 Q40 45 45 40" stroke="#f26b6b" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-                <rect x="35.5" y="13" width="9" height="13" rx="4.5" fill="#1a1a32" stroke="#2a2a48" stroke-width="1.2"/>
-                <line x1="20" y1="24" x2="28" y2="18" stroke="#69a9f5" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
-                <line x1="60" y1="24" x2="52" y2="18" stroke="#69a9f5" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
+            <!-- Mascote Aranha estilizado -->
+            <svg width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="45" cy="45" r="32" fill="#e23636" stroke="#1a1a2e" stroke-width="2.5"/>
+                <path d="M22 54 L27 48 L23 43 L29 46 L33 40 L37 46 L42 42 L45 48 L48 42 L53 46 L57 40 L61 46 L67 43 L63 48 L68 54" stroke="#1a1a2e" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <ellipse cx="34" cy="33" rx="9" ry="9.5" fill="white" stroke="#1a1a2e" stroke-width="2"/>
+                <ellipse cx="56" cy="33" rx="9" ry="9.5" fill="white" stroke="#1a1a2e" stroke-width="2"/>
+                <circle cx="34" cy="33" r="3.5" fill="#1a1a2e"/>
+                <circle cx="56" cy="33" r="3.5" fill="#1a1a2e"/>
+                <circle cx="32" cy="30.5" r="1.8" fill="white"/>
+                <circle cx="54" cy="30.5" r="1.8" fill="white"/>
+                <path d="M38 46 Q45 52 52 46" stroke="#1a1a2e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                <rect x="41" y="22" width="8" height="16" rx="4" fill="#1a1a2e"/>
+                <path d="M15 30 L25 26 M75 30 L65 26" stroke="#2b55df" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="15" cy="30" r="3" fill="white" stroke="#2b55df" stroke-width="1.5"/>
+                <circle cx="75" cy="30" r="3" fill="white" stroke="#2b55df" stroke-width="1.5"/>
             </svg>
         </div>
         <div class="loading-spinner"></div>
@@ -894,7 +888,7 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
     </div>
 
     <header id="site-header">
-        <a class="header-logo" onclick="navigateTo('home')" title="Arakki — Início">
+        <a class="header-logo" onclick="navigateTo('home')">
             <span class="logo-dot"></span> Arakki
         </a>
         <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu">☰</button>
@@ -910,22 +904,20 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
         <section class="page-section active" id="section-home">
             <div class="mascot-wrapper centered">
                 <div class="mascot-avatar" id="mascot-home">
-                    <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <ellipse cx="40" cy="54" rx="26" ry="21" fill="#161628" stroke="#2a2a42" stroke-width="1.5"/>
-                        <path d="M40 48 C40 48 36 43 36 40 C36 37 39 35 40 38 C41 35 44 37 44 40 C44 43 40 48 40 48Z" fill="#f26b6b" opacity="0.9"/>
-                        <path d="M23 56 Q28 53 32 58" stroke="#69a9f5" stroke-width="2" fill="none" stroke-linecap="round"/>
-                        <path d="M57 56 Q52 53 48 58" stroke="#69a9f5" stroke-width="2" fill="none" stroke-linecap="round"/>
-                        <circle cx="40" cy="33" r="19" fill="#1a1a32" stroke="#2a2a48" stroke-width="1.5"/>
-                        <circle cx="32" cy="29" r="5.5" fill="#f2f2fa"/>
-                        <circle cx="48" cy="29" r="5.5" fill="#f2f2fa"/>
-                        <circle cx="32" cy="29" r="2.8" fill="#15152a"/>
-                        <circle cx="48" cy="29" r="2.8" fill="#15152a"/>
-                        <circle cx="33.8" cy="27.2" r="1.2" fill="#fff"/>
-                        <circle cx="49.8" cy="27.2" r="1.2" fill="#fff"/>
-                        <path d="M35 40 Q40 45 45 40" stroke="#f26b6b" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-                        <rect x="35.5" y="13" width="9" height="13" rx="4.5" fill="#1a1a32" stroke="#2a2a48" stroke-width="1.2"/>
-                        <line x1="20" y1="24" x2="28" y2="18" stroke="#69a9f5" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
-                        <line x1="60" y1="24" x2="52" y2="18" stroke="#69a9f5" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
+                    <svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="45" cy="45" r="32" fill="#e23636" stroke="#1a1a2e" stroke-width="2.5"/>
+                        <path d="M22 54 L27 48 L23 43 L29 46 L33 40 L37 46 L42 42 L45 48 L48 42 L53 46 L57 40 L61 46 L67 43 L63 48 L68 54" stroke="#1a1a2e" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        <ellipse cx="34" cy="33" rx="9" ry="9.5" fill="white" stroke="#1a1a2e" stroke-width="2"/>
+                        <ellipse cx="56" cy="33" rx="9" ry="9.5" fill="white" stroke="#1a1a2e" stroke-width="2"/>
+                        <circle cx="34" cy="33" r="3.5" fill="#1a1a2e"/>
+                        <circle cx="56" cy="33" r="3.5" fill="#1a1a2e"/>
+                        <circle cx="32" cy="30.5" r="1.8" fill="white"/>
+                        <circle cx="54" cy="30.5" r="1.8" fill="white"/>
+                        <path d="M38 46 Q45 52 52 46" stroke="#1a1a2e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                        <rect x="41" y="22" width="8" height="16" rx="4" fill="#1a1a2e"/>
+                        <path d="M15 30 L25 26 M75 30 L65 26" stroke="#2b55df" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="15" cy="30" r="3" fill="white" stroke="#2b55df" stroke-width="1.5"/>
+                        <circle cx="75" cy="30" r="3" fill="white" stroke="#2b55df" stroke-width="1.5"/>
                     </svg>
                 </div>
                 <div class="speech-bubble" id="bubble-home">
@@ -933,11 +925,11 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
                 </div>
             </div>
             <div style="text-align:center; margin-top:-10px; margin-bottom:20px;">
-                <button id="tutorial-btn" class="btn btn-ghost" style="font-size:0.9rem;">Como utilizar o site? 🤔</button>
+                <button id="tutorial-btn" class="btn btn-ghost">Como utilizar o site? 🤔</button>
                 <button id="tutorial-next-btn" class="btn btn-outline" style="display:none; margin-left:8px;">Próximo →</button>
             </div>
             <div class="search-card">
-                <h2>Encontre sua mensagem</h2>
+                <h2>🕷️ Encontre sua mensagem</h2>
                 <p>Digite seu nome para ver se há textos especiais esperando por você.</p>
                 <div class="search-input-group">
                     <input type="text" id="search-input" placeholder="Qual o seu nome?" autocomplete="off">
@@ -953,10 +945,10 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
             <div class="content-card">
                 <h2>Sobre o Arakki</h2>
                 <div class="divider"></div>
-                <p>O <span class="highlight">Arakki</span> é um espaço digital criado para guardar e entregar <strong>mensagens personalizadas</strong> entre amigos.</p>
+                <p>O <span style="color:var(--accent-red);font-weight:600;">Arakki</span> é um espaço digital criado para guardar e entregar <strong>mensagens personalizadas</strong> entre amigos.</p>
                 <p>Aqui, cada texto é único — escrito com carinho, guardado com cuidado e revelado no momento certo.</p>
-                <p>Navegue, descubra e sinta-se abraçado por palavras que foram escolhidas a dedo para você.</p>
-                <p style="color:var(--text-muted);font-size:0.85rem;">✨ Um lugar onde amizade e palavras se encontram.</p>
+                <p>Nosso mascote, inspirado no amigável herói aracnídeo, guia você nessa jornada de afeto.</p>
+                <p style="color:var(--accent-blue);">🕸️ Amizade, proteção e companheirismo.</p>
             </div>
         </section>
 
@@ -964,31 +956,29 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
             <div class="content-card">
                 <div class="mascot-wrapper centered" style="margin-bottom:20px;">
                     <div class="mascot-avatar">
-                        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <ellipse cx="40" cy="54" rx="26" ry="21" fill="#161628" stroke="#2a2a42" stroke-width="1.5"/>
-                            <path d="M40 48 C40 48 36 43 36 40 C36 37 39 35 40 38 C41 35 44 37 44 40 C44 43 40 48 40 48Z" fill="#f26b6b" opacity="0.9"/>
-                            <path d="M23 56 Q28 53 32 58" stroke="#69a9f5" stroke-width="2" fill="none" stroke-linecap="round"/>
-                            <path d="M57 56 Q52 53 48 58" stroke="#69a9f5" stroke-width="2" fill="none" stroke-linecap="round"/>
-                            <circle cx="40" cy="33" r="19" fill="#1a1a32" stroke="#2a2a48" stroke-width="1.5"/>
-                            <circle cx="32" cy="29" r="5.5" fill="#f2f2fa"/>
-                            <circle cx="48" cy="29" r="5.5" fill="#f2f2fa"/>
-                            <circle cx="32" cy="29" r="2.8" fill="#15152a"/>
-                            <circle cx="48" cy="29" r="2.8" fill="#15152a"/>
-                            <circle cx="33.8" cy="27.2" r="1.2" fill="#fff"/>
-                            <circle cx="49.8" cy="27.2" r="1.2" fill="#fff"/>
-                            <path d="M35 40 Q40 45 45 40" stroke="#f26b6b" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-                            <rect x="35.5" y="13" width="9" height="13" rx="4.5" fill="#1a1a32" stroke="#2a2a48" stroke-width="1.2"/>
-                            <line x1="20" y1="24" x2="28" y2="18" stroke="#69a9f5" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
-                            <line x1="60" y1="24" x2="52" y2="18" stroke="#69a9f5" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
+                        <svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="45" cy="45" r="32" fill="#e23636" stroke="#1a1a2e" stroke-width="2.5"/>
+                            <path d="M22 54 L27 48 L23 43 L29 46 L33 40 L37 46 L42 42 L45 48 L48 42 L53 46 L57 40 L61 46 L67 43 L63 48 L68 54" stroke="#1a1a2e" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            <ellipse cx="34" cy="33" rx="9" ry="9.5" fill="white" stroke="#1a1a2e" stroke-width="2"/>
+                            <ellipse cx="56" cy="33" rx="9" ry="9.5" fill="white" stroke="#1a1a2e" stroke-width="2"/>
+                            <circle cx="34" cy="33" r="3.5" fill="#1a1a2e"/>
+                            <circle cx="56" cy="33" r="3.5" fill="#1a1a2e"/>
+                            <circle cx="32" cy="30.5" r="1.8" fill="white"/>
+                            <circle cx="54" cy="30.5" r="1.8" fill="white"/>
+                            <path d="M38 46 Q45 52 52 46" stroke="#1a1a2e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                            <rect x="41" y="22" width="8" height="16" rx="4" fill="#1a1a2e"/>
+                            <path d="M15 30 L25 26 M75 30 L65 26" stroke="#2b55df" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="15" cy="30" r="3" fill="white" stroke="#2b55df" stroke-width="1.5"/>
+                            <circle cx="75" cy="30" r="3" fill="white" stroke="#2b55df" stroke-width="1.5"/>
                         </svg>
                     </div>
                 </div>
                 <h2>Por que esse mascote?</h2>
                 <div class="divider"></div>
-                <p>Nosso mascote foi inspirado na ideia de um <span class="highlight">guardião aracnídeo</span> — alguém que tece conexões, protege laços e está sempre por perto.</p>
-                <p>Ele representa a <strong>amizade</strong> que se entrelaça como uma teia delicada mas firme, a <strong>proteção</strong> silenciosa de quem cuida, o <strong>companheirismo</strong> de quem nunca abandona.</p>
-                <p>Com seus olhos grandes e sorriso acolhedor, ele é o guardião das mensagens — aquele que sempre tenta ajudar, conectar e aquecer corações.</p>
-                <p style="color:var(--accent-gold);font-style:italic;">"Pequeno no tamanho, gigante no coração."</p>
+                <p>Ele foi inspirado no herói que todos conhecem — aquele que balança entre prédios, mas também tem um coração gigante.</p>
+                <p><strong>Amizade, proteção, responsabilidade e carinho.</strong> É isso que ele representa. Um guardião que tece conexões entre as pessoas.</p>
+                <p>Ele sempre tenta ajudar, mesmo nas pequenas coisas — como entregar uma mensagem especial.</p>
+                <p style="color:var(--accent-red); font-style:italic;">"Com grandes poderes vêm grandes mensagens!"</p>
             </div>
         </section>
 
@@ -997,9 +987,9 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
                 <h2>Créditos</h2>
                 <div class="divider"></div>
                 <p>Este site foi criado com muito carinho para celebrar a amizade.</p>
-                <p>Design, desenvolvimento e ilustração do mascote <span class="highlight">Arakki</span> feitos artesanalmente.</p>
-                <p style="color:var(--text-muted);font-size:0.85rem;">Fontes: Google Fonts (Inter, Playfair Display)</p>
-                <p style="color:var(--accent-gold);">💙 Obrigado por visitar!</p>
+                <p>Design e desenvolvimento inspirados no amigável herói da vizinhança.</p>
+                <p style="color:var(--text-muted);">Mascote Arakki — uma homenagem fofa.</p>
+                <p style="color:var(--accent-red);">💙🕷️ Obrigado por visitar!</p>
             </div>
         </section>
     </main>
@@ -1008,12 +998,12 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
     <div class="toast" id="toast"></div>
 
     <footer id="site-footer">
-        <p>© 2026 Arakki — Guardião de Mensagens. Feito com 💙 para amigos.</p>
+        <p>© 2026 Arakki — Feito com 🕸️ e 💙 para amigos.</p>
     </footer>
 
     <script>
         (function() {
-           const messagesData = [{
+            const messagesData = [{
                 nome: "Valeria",
                 titulo: "Não sei um titulo bom, apenas leia",
                 data: "21/05/2026",
@@ -1068,7 +1058,6 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
             const header = document.getElementById('site-header');
             const headerNav = document.getElementById('header-nav');
             const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-            const mainContent = document.getElementById('main-content');
             const searchInput = document.getElementById('search-input');
             const searchBtn = document.getElementById('search-btn');
             const resultsContainer = document.getElementById('results-container');
@@ -1090,7 +1079,7 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
             let particlesArray = [];
             let animationFrameId = null;
             let currentTextData = null;
-            let tutorialStep = 0; // 0: off, 1: step1, 2: step2
+            let tutorialStep = 0;
 
             window.addEventListener('load', () => {
                 setTimeout(() => {
@@ -1110,18 +1099,15 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
             resizeCanvas();
 
             class Particle {
-                constructor() {
-                    this.reset();
-                }
+                constructor() { this.reset(); }
                 reset() {
                     this.x = Math.random() * particlesCanvas.width;
                     this.y = Math.random() * particlesCanvas.height;
-                    this.size = Math.random() * 1.8 + 0.4;
-                    this.speedX = (Math.random() - 0.5) * 0.35;
-                    this.speedY = (Math.random() - 0.5) * 0.35;
-                    this.opacity = Math.random() * 0.5 + 0.15;
-                    this.pulseSpeed = Math.random() * 0.015 + 0.005;
-                    this.pulseOffset = Math.random() * Math.PI * 2;
+                    this.size = Math.random() * 2.2 + 0.6;
+                    this.speedX = (Math.random() - 0.5) * 0.3;
+                    this.speedY = (Math.random() - 0.5) * 0.3;
+                    this.color = Math.random() < 0.5 ? '226,54,54' : '43,85,223';
+                    this.opacity = Math.random() * 0.4 + 0.15;
                 }
                 update(time) {
                     this.x += this.speedX;
@@ -1130,26 +1116,19 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
                     if (this.x > particlesCanvas.width + 10) this.x = -10;
                     if (this.y < -10) this.y = particlesCanvas.height + 10;
                     if (this.y > particlesCanvas.height + 10) this.y = -10;
-                    this.currentOpacity = this.opacity + Math.sin(time * this.pulseSpeed + this.pulseOffset) *
-                        0.2;
                 }
                 draw(ctx) {
                     ctx.beginPath();
                     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(200,210,230,${Math.max(0.05,this.currentOpacity)})`;
+                    ctx.fillStyle = `rgba(${this.color},${this.opacity})`;
                     ctx.fill();
                 }
             }
 
-            const isMobile = () => window.innerWidth < 768;
-            const particleCount = () => isMobile() ? 55 : 120;
-
             function initParticles() {
                 particlesArray = [];
-                const count = particleCount();
-                for (let i = 0; i < count; i++) {
-                    particlesArray.push(new Particle());
-                }
+                const count = window.innerWidth < 768 ? 45 : 90;
+                for (let i = 0; i < count; i++) particlesArray.push(new Particle());
             }
             initParticles();
             window.addEventListener('resize', () => {
@@ -1160,25 +1139,8 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
 
             function animateParticles(timestamp) {
                 ctx.clearRect(0, 0, particlesCanvas.width, particlesCanvas.height);
-                particlesArray.forEach(p => {
-                    p.update(timestamp);
-                    p.draw(ctx);
-                });
-                for (let i = 0; i < particlesArray.length; i++) {
-                    for (let j = i + 1; j < particlesArray.length; j++) {
-                        const dx = particlesArray[i].x - particlesArray[j].x;
-                        const dy = particlesArray[i].y - particlesArray[j].y;
-                        const dist = Math.sqrt(dx * dx + dy * dy);
-                        if (dist < 80) {
-                            ctx.beginPath();
-                            ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
-                            ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
-                            ctx.strokeStyle = `rgba(160,170,200,${0.04 * (1 - dist/80)})`;
-                            ctx.lineWidth = 0.4;
-                            ctx.stroke();
-                        }
-                    }
-                }
+                particlesArray.forEach(p => { p.update(timestamp);
+                    p.draw(ctx); });
                 animationFrameId = requestAnimationFrame(animateParticles);
             }
             animationFrameId = requestAnimationFrame(animateParticles);
@@ -1195,16 +1157,11 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
             });
 
             function navigateTo(sectionName, data = null) {
-                if (sectionName === 'text-view' && data) {
-                    currentTextData = data;
-                }
+                if (sectionName === 'text-view' && data) currentTextData = data;
                 currentSection = sectionName;
                 allSections.forEach(s => s.classList.remove('active'));
-                sectionHome.style.display = 'none';
-                sectionTextView.style.display = 'none';
-                sectionAbout.style.display = 'none';
-                sectionWhyMascot.style.display = 'none';
-                sectionCredits.style.display = 'none';
+                sectionHome.style.display = sectionTextView.style.display = sectionAbout.style.display =
+                    sectionWhyMascot.style.display = sectionCredits.style.display = 'none';
                 switch (sectionName) {
                     case 'home':
                         sectionHome.classList.add('active');
@@ -1254,9 +1211,7 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
                 const hash = window.location.hash.replace('#', '');
                 const validSections = ['home', 'about', 'why-mascot', 'credits'];
                 if (validSections.includes(hash) && currentSection !== hash && currentSection !==
-                    'text-view') {
-                    navigateTo(hash);
-                }
+                    'text-view') navigateTo(hash);
             });
 
             function typeText(element, text, speed = 35, onComplete = null) {
@@ -1264,23 +1219,19 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
                 element.textContent = '';
                 let i = 0;
                 const cursorEl = element.nextElementSibling;
-                if (cursorEl && cursorEl.classList.contains('typing-cursor')) {
-                    cursorEl.style.display = 'inline-block';
-                }
+                if (cursorEl && cursorEl.classList.contains('typing-cursor')) cursorEl.style.display =
+                'inline-block';
 
                 function type() {
                     if (i < text.length) {
                         element.textContent += text.charAt(i);
                         i++;
-                        const delay = text.charAt(i - 1) === '.' || text.charAt(i - 1) === '!' || text.charAt(i -
-                            1) === '?' ? speed * 3 :
-                            text.charAt(i - 1) === ',' ? speed * 2 :
-                            speed * (0.7 + Math.random() * 0.6);
+                        const ch = text.charAt(i - 1);
+                        const delay = (ch === '.' || ch === '!' || ch === '?') ? speed * 3 : (ch === ',') ? speed *
+                            2 : speed * (0.7 + Math.random() * 0.6);
                         typingTimeout = setTimeout(type, delay);
                     } else {
-                        if (cursorEl && cursorEl.classList.contains('typing-cursor')) {
-                            cursorEl.style.display = 'none';
-                        }
+                        if (cursorEl) cursorEl.style.display = 'none';
                         if (onComplete) onComplete();
                     }
                 }
@@ -1288,12 +1239,11 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
             }
 
             function initHomeBubble() {
-                const fullText =
-                    'Oi! Bem-vindo 😊 Aqui você pode encontrar mensagens especiais feitas para amigos. Digite seu nome abaixo para procurar seus textos.';
-                typeText(bubbleHomeText, fullText, 32);
+                typeText(bubbleHomeText,
+                    'Oi! Bem-vindo 😊 Aqui você pode encontrar mensagens especiais feitas para amigos. Digite seu nome abaixo para procurar seus textos.',
+                    32);
             }
 
-            // ---- TUTORIAL ----
             function resetTutorial() {
                 tutorialStep = 0;
                 tutorialArrow.style.display = 'none';
@@ -1304,10 +1254,8 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
             function positionArrow(targetEl) {
                 if (!targetEl) return;
                 const rect = targetEl.getBoundingClientRect();
-                const centerX = rect.left + rect.width / 2;
-                const topY = rect.top;
-                tutorialArrow.style.left = centerX + 'px';
-                tutorialArrow.style.top = topY + 'px';
+                tutorialArrow.style.left = (rect.left + rect.width / 2) + 'px';
+                tutorialArrow.style.top = (rect.top) + 'px';
                 tutorialArrow.style.display = 'block';
             }
 
@@ -1316,12 +1264,8 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
                 else if (tutorialStep === 2) positionArrow(searchBtn);
             }
 
-            window.addEventListener('scroll', () => {
-                if (tutorialStep !== 0) positionArrowForCurrentStep();
-            });
-            window.addEventListener('resize', () => {
-                if (tutorialStep !== 0) positionArrowForCurrentStep();
-            });
+            window.addEventListener('scroll', () => { if (tutorialStep !== 0) positionArrowForCurrentStep(); });
+            window.addEventListener('resize', () => { if (tutorialStep !== 0) positionArrowForCurrentStep(); });
 
             tutorialBtn.addEventListener('click', () => {
                 tutorialBtn.style.display = 'none';
@@ -1343,10 +1287,8 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
                     tutorialStep = 2;
                     tutorialNextBtn.style.display = 'none';
                     typeText(bubbleHomeText,
-                        "agora você pode procurar se tem algum texto para você, clique em Procurar 👇",
-                        25, () => {
-                            positionArrow(searchBtn);
-                        });
+                        "agora você pode procurar se tem algum texto para você, clique em Procurar 👇", 25,
+                        () => positionArrow(searchBtn));
                 }
             });
 
@@ -1359,13 +1301,9 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
                 });
             }
 
-            // ---- BUSCA ----
             function performSearch() {
                 const query = searchInput.value.trim();
-                if (!query) {
-                    showToast('Por favor, digite um nome.');
-                    return;
-                }
+                if (!query) { showToast('Por favor, digite um nome.'); return; }
                 const normalizedQuery = query.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
                 const results = messagesData.filter(msg => {
                     const normalizedNome = msg.nome.toLowerCase().normalize('NFD').replace(
@@ -1373,27 +1311,23 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
                     return normalizedNome.includes(normalizedQuery) || normalizedQuery.includes(
                         normalizedNome);
                 });
-
                 resultsContainer.style.display = 'block';
                 resultsContainer.innerHTML = '';
-
                 if (results.length === 0) {
                     resultsContainer.innerHTML = `
                 <div class="mascot-wrapper centered mt-32">
                   <div class="mascot-avatar">
-                    <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <ellipse cx="40" cy="54" rx="26" ry="21" fill="#161628" stroke="#2a2a42" stroke-width="1.5"/>
-                      <path d="M40 48 C40 48 36 43 36 40 C36 37 39 35 40 38 C41 35 44 37 44 40 C44 43 40 48 40 48Z" fill="#f26b6b" opacity="0.9"/>
-                      <path d="M23 56 Q28 53 32 58" stroke="#69a9f5" stroke-width="2" fill="none" stroke-linecap="round"/>
-                      <path d="M57 56 Q52 53 48 58" stroke="#69a9f5" stroke-width="2" fill="none" stroke-linecap="round"/>
-                      <circle cx="40" cy="33" r="19" fill="#1a1a32" stroke="#2a2a48" stroke-width="1.5"/>
-                      <circle cx="32" cy="29" r="5.5" fill="#f2f2fa"/><circle cx="48" cy="29" r="5.5" fill="#f2f2fa"/>
-                      <circle cx="32" cy="29" r="2.8" fill="#15152a"/><circle cx="48" cy="29" r="2.8" fill="#15152a"/>
-                      <circle cx="33.8" cy="27.2" r="1.2" fill="#fff"/><circle cx="49.8" cy="27.2" r="1.2" fill="#fff"/>
-                      <path d="M38 42 Q40 38 42 42" stroke="#f26b6b" stroke-width="2" fill="none" stroke-linecap="round"/>
-                      <rect x="35.5" y="13" width="9" height="13" rx="4.5" fill="#1a1a32" stroke="#2a2a48" stroke-width="1.2"/>
-                      <line x1="20" y1="24" x2="28" y2="18" stroke="#69a9f5" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
-                      <line x1="60" y1="24" x2="52" y2="18" stroke="#69a9f5" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
+                    <svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="45" cy="45" r="32" fill="#e23636" stroke="#1a1a2e" stroke-width="2.5"/>
+                      <path d="M22 54 L27 48 L23 43 L29 46 L33 40 L37 46 L42 42 L45 48 L48 42 L53 46 L57 40 L61 46 L67 43 L63 48 L68 54" stroke="#1a1a2e" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                      <ellipse cx="34" cy="33" rx="9" ry="9.5" fill="white" stroke="#1a1a2e" stroke-width="2"/>
+                      <ellipse cx="56" cy="33" rx="9" ry="9.5" fill="white" stroke="#1a1a2e" stroke-width="2"/>
+                      <circle cx="34" cy="33" r="3.5" fill="#1a1a2e"/>
+                      <circle cx="56" cy="33" r="3.5" fill="#1a1a2e"/>
+                      <circle cx="32" cy="30.5" r="1.8" fill="white"/>
+                      <circle cx="54" cy="30.5" r="1.8" fill="white"/>
+                      <path d="M38 46 Q45 52 52 46" stroke="#1a1a2e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                      <rect x="41" y="22" width="8" height="16" rx="4" fill="#1a1a2e"/>
                     </svg>
                   </div>
                   <div class="speech-bubble">Hm… parece que ainda não existe nenhum texto pra esse nome 😅</div>
@@ -1413,40 +1347,22 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
                   `).join('')}
                 </div>`;
                     resultsContainer.querySelectorAll('.result-card').forEach((card, i) => {
-                        card.addEventListener('click', () => navigateTo('text-view', results[
-                            i]));
-                        card.addEventListener('keydown', (e) => {
-                            if (e.key === 'Enter') navigateTo('text-view', results[i]);
-                        });
+                        card.addEventListener('click', () => navigateTo('text-view', results[i]));
+                        card.addEventListener('keydown', (e) => { if (e.key === 'Enter') navigateTo(
+                                'text-view', results[i]); });
                     });
                 }
                 resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-                if (tutorialStep === 2) {
-                    tutorialFinal();
-                }
+                if (tutorialStep === 2) tutorialFinal();
             }
 
             searchBtn.addEventListener('click', performSearch);
-            searchInput.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter') performSearch();
-            });
+            searchInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') performSearch(); });
 
             function renderTextView(data) {
-                const starCount = 30;
-                let starsHTML = '';
-                for (let i = 0; i < starCount; i++) {
-                    const top = Math.random() * 100;
-                    const left = Math.random() * 100;
-                    const dur = 1.5 + Math.random() * 3;
-                    const delay = Math.random() * 4;
-                    starsHTML +=
-                        `<span class="star-particle" style="top:${top}%;left:${left}%;--dur:${dur}s;--delay:${delay}s;"></span>`;
-                }
                 sectionTextView.innerHTML = `
             <div class="text-page-wrapper">
               <div class="text-article">
-                <div class="decorative-stars">${starsHTML}</div>
                 <div class="text-meta">
                   <h2>${escapeHTML(data.titulo)}</h2>
                   <span class="text-date">${escapeHTML(data.data)}</span>
@@ -1454,7 +1370,7 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
                 <div class="text-body">${escapeHTML(data.mensagem)}</div>
                 ${data.versiculos && data.versiculos.length > 0 ? `
                   <div class="verses-section">
-                    <h3>📖 Versículos</h3>
+                    <h3>🕸️ Versículos</h3>
                     <div class="verse-cards">
                       ${data.versiculos.map(v => `<div class="verse-card">${escapeHTML(v)}</div>`).join('')}
                     </div>
@@ -1463,19 +1379,17 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
               </div>
               <div class="mascot-wrapper centered mt-32">
                 <div class="mascot-avatar">
-                  <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <ellipse cx="40" cy="54" rx="26" ry="21" fill="#161628" stroke="#2a2a42" stroke-width="1.5"/>
-                    <path d="M40 48 C40 48 36 43 36 40 C36 37 39 35 40 38 C41 35 44 37 44 40 C44 43 40 48 40 48Z" fill="#f26b6b" opacity="0.9"/>
-                    <path d="M23 56 Q28 53 32 58" stroke="#69a9f5" stroke-width="2" fill="none" stroke-linecap="round"/>
-                    <path d="M57 56 Q52 53 48 58" stroke="#69a9f5" stroke-width="2" fill="none" stroke-linecap="round"/>
-                    <circle cx="40" cy="33" r="19" fill="#1a1a32" stroke="#2a2a48" stroke-width="1.5"/>
-                    <circle cx="32" cy="29" r="5.5" fill="#f2f2fa"/><circle cx="48" cy="29" r="5.5" fill="#f2f2fa"/>
-                    <circle cx="32" cy="29" r="2.8" fill="#15152a"/><circle cx="48" cy="29" r="2.8" fill="#15152a"/>
-                    <circle cx="33.8" cy="27.2" r="1.2" fill="#fff"/><circle cx="49.8" cy="27.2" r="1.2" fill="#fff"/>
-                    <path d="M35 40 Q40 45 45 40" stroke="#f26b6b" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-                    <rect x="35.5" y="13" width="9" height="13" rx="4.5" fill="#1a1a32" stroke="#2a2a48" stroke-width="1.2"/>
-                    <line x1="20" y1="24" x2="28" y2="18" stroke="#69a9f5" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
-                    <line x1="60" y1="24" x2="52" y2="18" stroke="#69a9f5" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
+                  <svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="45" cy="45" r="32" fill="#e23636" stroke="#1a1a2e" stroke-width="2.5"/>
+                    <path d="M22 54 L27 48 L23 43 L29 46 L33 40 L37 46 L42 42 L45 48 L48 42 L53 46 L57 40 L61 46 L67 43 L63 48 L68 54" stroke="#1a1a2e" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    <ellipse cx="34" cy="33" rx="9" ry="9.5" fill="white" stroke="#1a1a2e" stroke-width="2"/>
+                    <ellipse cx="56" cy="33" rx="9" ry="9.5" fill="white" stroke="#1a1a2e" stroke-width="2"/>
+                    <circle cx="34" cy="33" r="3.5" fill="#1a1a2e"/>
+                    <circle cx="56" cy="33" r="3.5" fill="#1a1a2e"/>
+                    <circle cx="32" cy="30.5" r="1.8" fill="white"/>
+                    <circle cx="54" cy="30.5" r="1.8" fill="white"/>
+                    <path d="M38 46 Q45 52 52 46" stroke="#1a1a2e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                    <rect x="41" y="22" width="8" height="16" rx="4" fill="#1a1a2e"/>
                   </svg>
                 </div>
                 <div class="speech-bubble" id="bubble-end">
@@ -1500,10 +1414,8 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
                             if (i < fullEndText.length) {
                                 endTextEl.textContent += fullEndText.charAt(i);
                                 i++;
-                                const delay = fullEndText.charAt(i - 1) === '.' || fullEndText.charAt(
-                                    i - 1) === '!' ? 90 :
-                                    fullEndText.charAt(i - 1) === ',' ? 60 :
-                                    30 * (0.7 + Math.random() * 0.6);
+                                const delay = (fullEndText.charAt(i - 1) === '.' || fullEndText.charAt(i - 1) ===
+                                    '!') ? 90 : 30;
                                 typingTimeout = setTimeout(typeEnd, delay);
                             } else {
                                 if (endCursorEl) endCursorEl.style.display = 'none';
@@ -1528,22 +1440,13 @@ Quando você clicar em **"Como utilizar o site?"**, o próprio Arakki vai te gui
             }
 
             window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
+                header.classList.toggle('scrolled', window.scrollY > 50);
             });
 
             const initialHash = window.location.hash.replace('#', '');
             const validSections = ['home', 'about', 'why-mascot', 'credits'];
-            if (validSections.includes(initialHash) && initialHash !== 'home') {
-                navigateTo(initialHash);
-            }
+            if (validSections.includes(initialHash) && initialHash !== 'home') navigateTo(initialHash);
             if (!initialHash) window.location.hash = 'home';
-
-            console.log('🕷️ Arakki — Guardião de Mensagens está pronto!');
-            console.log('💙 Agora com tutorial interativo e visual renovado.');
         })();
     </script>
 </body>
